@@ -15,9 +15,7 @@ rtdetr = run_rtdetr(video_path, ground_truth)
 
 models = ['YOLOv8n', 'RT-DETR']
 
-# -------------------------------
-# 1. FPS 
-# -------------------------------
+# 1. FPS
 fps = [yolo["fps"], rtdetr["fps"]]
 
 plt.figure()
@@ -26,9 +24,8 @@ plt.title("FPS Comparison (Speed)")
 plt.ylabel("Frames Per Second")
 plt.show()
 
-# -------------------------------
 # 2. TIME TAKEN
-# -------------------------------
+
 time_taken = [yolo["time"], rtdetr["time"]]
 
 plt.figure()
@@ -38,9 +35,7 @@ plt.ylabel("Time (seconds)")
 plt.show()
 
 
-# -------------------------------
 # 4. MODEL SIZE
-# -------------------------------
 yolo_size = os.path.getsize("yolov8n.pt") / (1024 * 1024)
 rtdetr_size = os.path.getsize("rtdetr-l.pt") / (1024 * 1024)
 
@@ -52,9 +47,8 @@ plt.title("Model Size (MB)")
 plt.ylabel("Size")
 plt.show()
 
-# -------------------------------
 # 5. EFFICIENCY 
-# -------------------------------
+
 efficiency = [
     yolo["fps"] / yolo_size,
     rtdetr["fps"] / rtdetr_size
@@ -66,9 +60,8 @@ plt.title("Efficiency (FPS per MB)")
 plt.ylabel("Score")
 plt.show()
 
-# -------------------------------
-# FINAL PRINT
-# -------------------------------
+
+# FINAL RESULT
 print("\nFINAL RESULT:")
 print(f"YOLOv8n -> FPS: {yolo['fps']:.2f}, Time: {yolo['time']:.2f}, Size: {yolo_size:.2f} MB")
 print(f"RT-DETR -> FPS: {rtdetr['fps']:.2f}, Time: {rtdetr['time']:.2f}, Size: {rtdetr_size:.2f} MB")
