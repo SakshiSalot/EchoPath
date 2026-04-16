@@ -3,7 +3,8 @@ from rtdetr import run_rtdetr
 import matplotlib.pyplot as plt
 import os
 
-video_path = "data/acad_block_videos/1.mp4"
+# video_path = "data/acad_block_videos/1.mp4"
+video_path = r"C:\Users\ssesi\Desktop\git\EchoPath\data\acad_block_videos\1.mp4"
 ground_truth = 50
 
 print("Running YOLOv8n...")
@@ -15,7 +16,7 @@ rtdetr = run_rtdetr(video_path, ground_truth)
 models = ['YOLOv8n', 'RT-DETR']
 
 # -------------------------------
-# 1. FPS (🔥 VERY IMPORTANT)
+# 1. FPS 
 # -------------------------------
 fps = [yolo["fps"], rtdetr["fps"]]
 
@@ -36,16 +37,6 @@ plt.title("Inference Time Comparison")
 plt.ylabel("Time (seconds)")
 plt.show()
 
-# # -------------------------------
-# # 3. DETECTIONS (RECALL PROXY)
-# # -------------------------------
-# detections = [yolo["detections"], rtdetr["detections"]]
-
-# plt.figure()
-# plt.bar(models, detections)
-# plt.title("Total Detections")
-# plt.ylabel("Count")
-# plt.show()
 
 # -------------------------------
 # 4. MODEL SIZE
@@ -62,7 +53,7 @@ plt.ylabel("Size")
 plt.show()
 
 # -------------------------------
-# 5. EFFICIENCY (🔥 BEST GRAPH)
+# 5. EFFICIENCY 
 # -------------------------------
 efficiency = [
     yolo["fps"] / yolo_size,
