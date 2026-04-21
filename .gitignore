@@ -5,6 +5,18 @@ build/
 dist/
 wheels/
 *.egg-info
+.DS_Store
 
 # Virtual environments
 .venv
+
+#Videos
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.flv
+*.wmv
+*.MP4
+
+
